@@ -1,0 +1,54 @@
+{
+  "private": false,
+  "name": "test2-d",
+  "version": "1.0.5",
+  "scripts": {
+    "start": "dumi dev",
+    "docs:build": "dumi build",
+    "build": "father-build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "release": "npm run build && npm publish",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/umijs/dumi-template",
+    "branch": "main"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "anyg": "^0.2.3"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^12.1.2",
+    "@umijs/test": "^3.0.5",
+    "dumi": "^1.1.0",
+    "father-build": "^1.20.1",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "react": "^16.8.2",
+    "antd": "^4.x.x"
+  },
+  "peerDependencies": {
+    "react": "^16.8.2",
+    "antd": "^4.x.x"
+  },
+  "files": [
+    "dist"
+  ]
+}
